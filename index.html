@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gestión de Clientes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Enlaza el CSS correctamente -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Gestión de Clientes</h1>
+    <div class="toolbar">
+      <button id="temaToggle" aria-label="Cambiar tema">🌙</button>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <!-- Panel de alta -->
+    <section class="panel">
+      <h2>Alta de cliente</h2>
+      <form id="formCliente" novalidate aria-describedby="ayudaAlta">
+        <div class="grid">
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text" id="nombre" placeholder="Nombre completo"
+              required minlength="2" aria-invalid="false" aria-describedby="errNombre hintNombre"
+            />
+            <small id="hintNombre" class="hint">Obligatorio. Mín. 2 letras.</small>
+            <!--  Contenedor de error -->
+            <small id="errNombre" class="error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input
+              type="email" id="email" placeholder="email@ejemplo.com"
+              required aria-invalid="false" aria-describedby="errEmail hintEmail"
+            />
+            <small id="hintEmail" class="hint">Obligatorio y único.</small>
+            <!--  Contenedor de error -->
+            <small id="errEmail" class="error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="telefono">Teléfono</label>
+            <input
+              type="tel" id="telefono" placeholder="+34 600 000 000"
+              required aria-invalid="false" aria-describedby="errTelefono hintTelefono"
+            />
+            <small id="hintTelefono" class="hint">Formato nacional (España) o internacional.</small>
+            <!--  Contenedor de error -->
+            <small id="errTelefono" class="error" aria-live="polite"></small>
+          </div>
+        </div>
+
+        <div class="actions">
+          <!-- Deshabilitado de inicio hasta que sea válido -->
+          <button type="submit" class="btn primary" id="btnSubmit" disabled>Añadir cliente</button>
+          <button type="reset" class="btn ghost" id="btnReset">Limpiar</button>
+        </div>
+
+        <p id="ayudaAlta" class="sr-only">
+          Introduce nombre, correo único y teléfono. Los errores aparecerán bajo cada campo.
+        </p>
+      </form>
+
+      <!-- Mensajes globales -->
+      <div id="mensaje" role="status" aria-live="polite"></div>
+    </section>
+
+    <!-- Listado  -->
+    <section class="panel">
+      <h2>Listado de clientes</h2>
+      <div class="table-wrapper">
+        <table class="table" aria-describedby="ayudaTabla">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Teléfono</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaClientes"></tbody>
+        </table>
+      </div>
+      <p id="ayudaTabla" class="sr-only">
+        La tabla muestra los clientes. Usa los botones editar o eliminar en cada fila.
+      </p>
+    </section>
+  </main>
+
+  <!-- Modal de edición -->
+  <dialog id="modal" class="modal" aria-labelledby="modalTitle">
+    <form method="dialog" id="formEditar" novalidate>
+      <h3 id="modalTitle">Editar cliente</h3>
+
+      <div class="field">
+        <label for="editNombre">Nombre</label>
+        <input type="text" id="editNombre" required minlength="2" aria-invalid="false" aria-describedby="errEditNombre">
+        <small id="errEditNombre" class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="field">
+        <label for="editEmail">Email</label>
+        <input type="email" id="editEmail" required aria-invalid="false" aria-describedby="errEditEmail">
+        <small id="errEditEmail" class="error" aria-live="polite"></small>
+      </div>
+
+      <div class="field">
+        <label for="editTelefono">Teléfono</label>
+        <input type="tel" id="editTelefono" required aria-invalid="false" aria-describedby="errEditTelefono">
+        <small id="errEditTelefono" class="error" aria-live="polite"></small>
+      </div>
+
+      <div id="mensajeEditar" role="status" aria-live="polite"></div>
+
+      <div class="actions">
+        <button type="submit" class="btn primary" id="guardarCambios">Guardar</button>
+        <button type="button" class="btn danger" id="cancelar">Cancelar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="app-footer">
+    <small>Proyecto DOM · Ingeniería Informática · UAX</small>
+  </footer>
+
+  <!--  Enlaza el JS -->
+  <script src="app.js"></script>
+</body>
+</html>
