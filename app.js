@@ -4,7 +4,7 @@ let clienteEditandoId = null;
 
 // ---- Elementos ----
 const form = document.getElementById("formCliente");
-const tabla = document.getElementById("tablaClientes");
+const tabla = document.getElementById("tabla");
 const mensaje = document.getElementById("mensaje");
 
 const modal = document.getElementById("modal");
