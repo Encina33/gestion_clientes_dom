@@ -4,16 +4,14 @@ let clienteEditandoId = null;
 
 // ---- Elementos ----
 const form = document.getElementById("formCliente");
-const tabla = document.getElementById("tabla");
+const tabla = document.getElementById("tablaClientes");
 const mensaje = document.getElementById("mensaje");
 
 const modal = document.getElementById("modal");
 const formEditar = document.getElementById("formEditar");
 const mensajeEditar = document.getElementById("mensajeEditar");
 
-const temaToggle = document.getElementById("temaToggle");
 const btnSubmit = document.getElementById("btnSubmit");
-const btnReset = document.getElementById("btnReset");
 
 // ---- Utils ----
 function showMsg(el, text, type = "success") {
