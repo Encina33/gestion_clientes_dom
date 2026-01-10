@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <title>Gestión de Clientes</title>
@@ -7,6 +8,7 @@
   <!-- Enlaza el CSS correctamente -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header class="app-header">
     <h1>Gestión de Clientes</h1>
@@ -15,45 +17,40 @@
   <main class="container" role="main">
     <!-- Panel de alta -->
     <section class="panel">
+
       <h2>Añadir Cliente</h2>
+
       <form id="formCliente" novalidate aria-describedby="ayudaAlta">
 
         <div class="grid">
           <div class="field">
-            <input
-              type="text" id="nombre" placeholder="Nombre"
-              required minlength="2" aria-invalid="false" aria-describedby="errNombre hintNombre"
-            />
-            
+            <input type="text" id="nombre" placeholder="Nombre" required minlength="2" aria-invalid="false"
+              aria-describedby="errNombre hintNombre" />
+
             <!--  Contenedor de error -->
             <small id="errNombre" class="error" aria-live="polite"></small>
           </div>
 
           <div class="field">
-            <input
-              type="email" id="email" placeholder="Correo electrónico"
-              required aria-invalid="false" aria-describedby="errEmail hintEmail"
-            />
-            
+            <input type="email" id="email" placeholder="Correo electrónico" required aria-invalid="false"
+              aria-describedby="errEmail hintEmail" />
+
             <!--  Contenedor de error -->
             <small id="errEmail" class="error" aria-live="polite"></small>
           </div>
 
           <div class="field">
-            <input
-              type="tel" id="telefono" placeholder="Teléfono"
-              required aria-invalid="false" aria-describedby="errTelefono hintTelefono"
-            />
-            
+            <input type="tel" id="telefono" placeholder="Teléfono" required aria-invalid="false"
+              aria-describedby="errTelefono hintTelefono" />
+
             <!--  Contenedor de error -->
             <small id="errTelefono" class="error" aria-live="polite"></small>
           </div>
-        </div>
 
-        <div class="actions">
-          <!-- Deshabilitado de inicio hasta que sea válido -->
-          <button type="submit" class="btn primary" id="btnSubmit" disabled>Añadir cliente</button>
-          <button type="reset" class="btn ghost" id="btnReset">Limpiar</button>
+          
+            <!-- Deshabilitado de inicio hasta que sea válido -->
+            <button type="submit" class="btn primary" id="btnSubmit" disabled>Añadir cliente</button>
+          
         </div>
 
         <p id="ayudaAlta" class="sr-only">
@@ -63,6 +60,7 @@
 
       <!-- Mensajes globales -->
       <div id="mensaje" role="status" aria-live="polite"></div>
+
     </section>
 
     <!-- Listado  -->
@@ -72,6 +70,7 @@
         <table class="table" aria-describedby="ayudaTabla">
           <thead>
             <tr>
+              <th>ID</th>
               <th>Nombre</th>
               <th>Email</th>
               <th>Teléfono</th>
@@ -126,4 +125,5 @@
   <!--  Enlaza el JS -->
   <script src="app.js"></script>
 </body>
+
 </html>
