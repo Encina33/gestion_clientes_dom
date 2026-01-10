@@ -14,57 +14,53 @@
     <h1>Gestión de Clientes</h1>
   </header>
 
-  <main class="container" role="main">
+  <main class="app" role="main">
     <!-- Panel de alta -->
-    <section class="panel">
+    <section class="container1">
 
       <h2>Añadir Cliente</h2>
 
-      <form id="formCliente" novalidate aria-describedby="ayudaAlta">
+      <form id="formCliente" class="formCliente" novalidate aria-describedby="ayudaAlta">
 
-        <div class="grid">
-          <div class="field">
-            <input type="text" id="nombre" placeholder="Nombre" required minlength="2" aria-invalid="false"
-              aria-describedby="errNombre hintNombre" />
+        <div class="field">
+          <input type="text" id="nombre" placeholder="Nombre" required minlength="2" aria-invalid="false"
+            aria-describedby="errNombre hintNombre" />
 
-            <!--  Contenedor de error -->
-            <small id="errNombre" class="error" aria-live="polite"></small>
-          </div>
-
-          <div class="field">
-            <input type="email" id="email" placeholder="Correo electrónico" required aria-invalid="false"
-              aria-describedby="errEmail hintEmail" />
-
-            <!--  Contenedor de error -->
-            <small id="errEmail" class="error" aria-live="polite"></small>
-          </div>
-
-          <div class="field">
-            <input type="tel" id="telefono" placeholder="Teléfono" required aria-invalid="false"
-              aria-describedby="errTelefono hintTelefono" />
-
-            <!--  Contenedor de error -->
-            <small id="errTelefono" class="error" aria-live="polite"></small>
-          </div>
-
-          
-            <!-- Deshabilitado de inicio hasta que sea válido -->
-            <button type="submit" class="btn primary" id="btnSubmit" disabled>Añadir cliente</button>
-          
+          <!--  Contenedor de error -->
+          <small id="errNombre" class="error" aria-live="polite"></small>
         </div>
+
+        <div class="field">
+          <input type="email" id="email" placeholder="Correo electrónico" required aria-invalid="false"
+            aria-describedby="errEmail hintEmail" />
+
+          <!--  Contenedor de error -->
+          <small id="errEmail" class="error" aria-live="polite"></small>
+        </div>
+
+        <div class="field">
+          <input type="tel" id="telefono" placeholder="Teléfono" required aria-invalid="false"
+            aria-describedby="errTelefono hintTelefono" />
+
+          <!--  Contenedor de error -->
+          <small id="errTelefono" class="error" aria-live="polite"></small>
+        </div>
+
+
+        <!-- Deshabilitado de inicio hasta que sea válido -->
+        <button type="submit" class="btn primary" id="btnSubmit" disabled>Añadir cliente</button>
+
+
 
         <p id="ayudaAlta" class="sr-only">
           Introduce nombre, correo único y teléfono. Los errores aparecerán bajo cada campo.
         </p>
       </form>
 
-      <!-- Mensajes globales -->
-      <div id="mensaje" role="status" aria-live="polite"></div>
-
     </section>
 
     <!-- Listado  -->
-    <section class="panel">
+    <section class="container2">
       <h2>Listado de clientes</h2>
       <div class="table-wrapper">
         <table class="table" aria-describedby="ayudaTabla">
