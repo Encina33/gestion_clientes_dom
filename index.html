@@ -5,51 +5,46 @@
   <title>Gestión de Clientes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Enlaza el CSS correctamente -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="app-header">
     <h1>Gestión de Clientes</h1>
-    <div class="toolbar">
-      <button id="temaToggle" aria-label="Cambiar tema">🌙</button>
-    </div>
   </header>
 
   <main class="container" role="main">
     <!-- Panel de alta -->
     <section class="panel">
-      <h2>Alta de cliente</h2>
+      <h2>Añadir Cliente</h2>
       <form id="formCliente" novalidate aria-describedby="ayudaAlta">
+
         <div class="grid">
           <div class="field">
-            <label for="nombre">Nombre</label>
             <input
-              type="text" id="nombre" placeholder="Nombre completo"
+              type="text" id="nombre" placeholder="Nombre"
               required minlength="2" aria-invalid="false" aria-describedby="errNombre hintNombre"
             />
-            <small id="hintNombre" class="hint">Obligatorio. Mín. 2 letras.</small>
+            
             <!--  Contenedor de error -->
             <small id="errNombre" class="error" aria-live="polite"></small>
           </div>
 
           <div class="field">
-            <label for="email">Email</label>
             <input
-              type="email" id="email" placeholder="email@ejemplo.com"
+              type="email" id="email" placeholder="Correo electrónico"
               required aria-invalid="false" aria-describedby="errEmail hintEmail"
             />
-            <small id="hintEmail" class="hint">Obligatorio y único.</small>
+            
             <!--  Contenedor de error -->
             <small id="errEmail" class="error" aria-live="polite"></small>
           </div>
 
           <div class="field">
-            <label for="telefono">Teléfono</label>
             <input
-              type="tel" id="telefono" placeholder="+34 600 000 000"
+              type="tel" id="telefono" placeholder="Teléfono"
               required aria-invalid="false" aria-describedby="errTelefono hintTelefono"
             />
-            <small id="hintTelefono" class="hint">Formato nacional (España) o internacional.</small>
+            
             <!--  Contenedor de error -->
             <small id="errTelefono" class="error" aria-live="polite"></small>
           </div>
