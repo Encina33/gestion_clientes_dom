@@ -91,7 +91,7 @@ h3 {
 }
 
 .container1 h2,
-.container2 h2{
+.container2 h2 {
   font-size: 27px;
   margin-bottom: 20px;
 }
@@ -106,18 +106,18 @@ h3 {
   width: 70%;
 }
 
-.formCliente .field{
- display: flex;
- align-items: flex-start;
- 
+.formCliente .field {
+  display: flex;
+  align-items: flex-start;
+
 }
 
-.field{
+.field {
   display: flex;
   flex-direction: column;
 }
 
-.field input{
+.field input {
   width: 120%;
 }
 
@@ -126,24 +126,34 @@ h3 {
   box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.103);
 }
 
-.field small{
+.field small {
   font-size: 11px;
 }
 
-.btn{
+.btn {
   color: black;
-  cursor: not-allowed;
+  cursor:pointer;
 }
 
 /*Tabla*/
 .container-tabla,
 .tabla {
   width: 100%;
-  border: 2px solid red;
 }
 
-.tabla thead {
-  background-color: 2px solid rgb(247, 18, 18);
+.tabla,
+.tabla th,
+.tabla td {
+  border: 1px solid #31313156;   /* borde negro */
+  border-collapse: collapse; /* evita doble borde */
+  text-align: left;
+  padding-left: 5px;
+  height: 30px;
 }
 
 
+.tabla thead th {
+  background-color: rgb(244, 244, 244);
+  color: #000;
+  font-weight: bold;
+}
