@@ -2,7 +2,7 @@
 let clientes = [];
 let clienteEditandoId = null;
 
-// ---- Elementos ----
+// ---- elementos ----
 const form = document.getElementById("formCliente");
 const tabla = document.getElementById("tablaClientes");
 const modal = document.getElementById("modal");
@@ -10,18 +10,19 @@ const formEditar = document.getElementById("formEditar");
 const mensajeEditar = document.getElementById("mensajeEditar");
 const btnSubmit = document.getElementById("btnSubmit");
 
-// ---- Reglas ----
+// ---- reglas ----
 const nombreRegex = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ'´` ]{2,}$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const telRegex = /^\+?\d(?:[\d -]{6,}\d)?$/;
 
-// ---- Validaciones ----
+// ---- validaciones ----
 function validarNombre(nombre) {
   if (!nombre.trim()) return { ok: false, msg: "El nombre no puede estar vacío." };
   if (!nombreRegex.test(nombre)) return { ok: false, msg: "Usa solo letras y espacios (mín. 2)." };
   return { ok: true };
 }
 
+// ---- validación de email de alta ----
 function validarEmailAlta(email) {
   if (!email.trim()) return { ok: false, msg: "El email es obligatorio." };
   if (!emailRegex.test(email)) return { ok: false, msg: "Formato de email inválido." };
@@ -31,12 +32,14 @@ function validarEmailAlta(email) {
   return { ok: true };
 }
 
+// ---- validación de teléfono ----
 function validarTelefono(telefono) {
   if (!telefono.trim()) return { ok: false, msg: "El teléfono es obligatorio." };
   if (!telRegex.test(telefono)) return { ok: false, msg: "Formato de teléfono inválido." };
   return { ok: true };
 }
 
+// ---- validación de email de edición ----
 function validarEmailEdicion(email, idActual) {
   if (!email.trim()) return { ok: false, msg: "El email es obligatorio." };
   if (!emailRegex.test(email)) return { ok: false, msg: "Formato de email inválido." };
@@ -45,12 +48,13 @@ function validarEmailEdicion(email, idActual) {
   return { ok: true };
 }
 
-// ---- Helpers ----
+// ---- helpers ----
 function debounce(fn, ms = 200) {
   let t;
   return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
 }
 
+// ---- establecer estado de campo ----
 function setFieldState(el, errEl, ok, msg) {
   if (ok) {
     el.classList.add("valid");
@@ -65,6 +69,7 @@ function setFieldState(el, errEl, ok, msg) {
   }
 }
 
+// ---- deshabilitar/habilitar botón de envío ----
 function toggleSubmit() {
   const n = document.getElementById("nombre").classList.contains("valid");
   const e = document.getElementById("email").classList.contains("valid");
@@ -72,16 +77,18 @@ function toggleSubmit() {
   btnSubmit.disabled = !(n && e && t);
 }
 
+// ---- mostrar mensaje ----
 function showMsg(target, text, type) {
   target.textContent = text;
   target.className = type;
 }
 
+// ---- limpiar mensajes ----
 function limpiarMensajes() {
   mensajeEditar.textContent = "";
 }
 
-// ---- Pintar tabla ----
+// ---- pintar tabla ----
 function pintarTabla() {
   tabla.innerHTML = "";
 
@@ -90,6 +97,7 @@ function pintarTabla() {
     return;
   }
 
+  // ---- pintar filas de la tabla ----
   clientes.forEach((cliente, index) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -114,7 +122,7 @@ function pintarTabla() {
   );
 }
 
-// ---- Alta ----
+// ---- alta ----
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -144,7 +152,7 @@ form.addEventListener("submit", (e) => {
   pintarTabla();
 });
 
-// ---- Validación en tiempo real ----
+// ---- validación en tiempo real ----
 document.getElementById("nombre").addEventListener("input", debounce(() => {
   const el = nombre, err = errNombre;
   const v = validarNombre(el.value);
@@ -152,6 +160,7 @@ document.getElementById("nombre").addEventListener("input", debounce(() => {
   toggleSubmit();
 }));
 
+// ---- validación de email en tiempo real ----
 document.getElementById("email").addEventListener("input", debounce(() => {
   const el = email, err = errEmail;
   const v = validarEmailAlta(el.value);
@@ -159,6 +168,7 @@ document.getElementById("email").addEventListener("input", debounce(() => {
   toggleSubmit();
 }));
 
+// ---- validación de teléfono en tiempo real ----
 document.getElementById("telefono").addEventListener("input", debounce(() => {
   const el = telefono, err = errTelefono;
   const v = validarTelefono(el.value);
@@ -166,13 +176,13 @@ document.getElementById("telefono").addEventListener("input", debounce(() => {
   toggleSubmit();
 }));
 
-// ---- Eliminar ----
+// ---- eliminar cliente ----
 function eliminar(id) {
   clientes = clientes.filter(c => c.id !== id);
   pintarTabla();
 }
 
-// ---- Editar ----
+// ---- editar cliente ----
 function editar(id) {
   const c = clientes.find(x => x.id === id);
   if (!c) return;
@@ -191,7 +201,7 @@ function editar(id) {
   else modal.setAttribute("open", "");
 }
 
-// ---- Validación edición ----
+// ---- validación de nombre en edición ----
 editNombre.addEventListener("input", debounce(() => {
   const v = validarNombre(editNombre.value);
   setFieldState(editNombre, errEditNombre, v.ok, v.msg);
@@ -207,7 +217,7 @@ editTelefono.addEventListener("input", debounce(() => {
   setFieldState(editTelefono, errEditTelefono, v.ok, v.msg);
 }));
 
-// ---- Guardar edición ----
+// ---- guardar edición ----
 formEditar.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -233,8 +243,8 @@ formEditar.addEventListener("submit", (e) => {
   pintarTabla();
 });
 
-// ---- Cancelar ----
+// ---- cancelar edición ----
 cancelar.addEventListener("click", () => modal.close());
 
-// ---- Inicial ----
+// ---- inicializar ----
 pintarTabla();

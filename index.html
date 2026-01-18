@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
-
+  <!-- encabezado del documento --> 
 <head>
   <meta charset="UTF-8" />
   <title>Gestión de Clientes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Enlaza el CSS correctamente -->
+  <!-- enlaza el CSS correctamente -->
   <link rel="stylesheet" href="style.css">
 </head>
 
+<!-- cuerpo del documento -->
 <body>
+  <!-- encabezado de la aplicación -->
   <header class="app-header">
     <h1>Gestión de Clientes</h1>
   </header>
 
+  <!-- contenido principal de la aplicación -->
   <main class="app" role="main">
-    <!-- Panel de alta -->
+    <!-- panel de alta -->
     <section class="container1">
 
       <h2>Añadir Clientes</h2>
@@ -54,7 +57,7 @@
 
     </section>
 
-    <!-- Listado  -->
+    <!-- listado  -->
     <section class="container2">
       <h2>Lista de Clientes</h2>
       <div class="container-tabla">
@@ -78,7 +81,7 @@
     </section>
   </main>
 
-  <!-- Modal de edición -->
+  <!-- modal de edición de cliente (formulario) -->
   <dialog id="modal" class="modal" aria-labelledby="modalTitle">
     <form method="dialog" id="formEditar" novalidate>
       <h3 id="modalTitle">Editar cliente</h3>
@@ -111,11 +114,12 @@
     </form>
   </dialog>
 
+  <!-- pie de página de la aplicación -->
   <footer class="app-footer">
     <small>Proyecto DOM · Ingeniería Informática · UAX</small>
   </footer>
 
-  <!--  Enlaza el JS -->
+  <!--  enlaza el javascript -->
   <script src="app.js"></script>
 </body>
 

@@ -1,159 +1,167 @@
-/* Paleta y tema */
-:root {
-  --bg: #0e0f1a;
-  --bg-soft: #15182b;
-  --text: #e6eaf2;
-  --muted: #9aa3b2;
-  --primary: #7c4dff;
-  --primary-2: #4e9cff;
-  --danger: #ff5252;
-  --success: #2ecc71;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  --radius: 12px;
-}
 
+/* Paleta y tema (variables CSS) */
+   :root {
+    --bg: #0e0f1a;             /* fondo principal oscuro */
+    --bg-soft: #15182b;        /* fondo alternativo/soft */
+    --text: #e6eaf2;           /* color de texto base */
+    --muted: #9aa3b2;          /* texto secundario/suave */
+    --primary: #7c4dff;        /* color primario (acento 1) */
+    --primary-2: #4e9cff;      /* color primario alternativo (acento 2) */
+    --danger: #ff5252;         /* color para estados de error/peligro */
+    --success: #2ecc71;        /* color para estados de éxito */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35); /* sombra global reutilizable */
+    --radius: 12px;            /* radio de borde global reutilizable */
+  }
+  
+  /* Reset básico */
+  * {
+    box-sizing: border-box;    /* incluye padding/border en el cálculo de width/height */
+  }
+  
+  html,
+  body {
+    height: 100%;              /* asegura que el body pueda ocupar alto completo */
+  }
+  
+  /* Body */
+  body {
+    margin: 0;                 /* quita márgenes por defecto */
+    font-family: Roboto, Arial, sans-serif; /* tipografía base */
+    color: var(--text);        /* color de texto usando variable */
+    background: white;       /* fondo blanco (no usa --bg) */
+    display: flex;             /* layout principal con flexbox */
+    flex-direction: column;    /* coloca elementos en columna */
+    align-items: center;       /* centra horizontalmente contenido */
+    justify-content: flex-start; /* alinea contenido al inicio vertical */
+    max-height: auto;          /* valor por defecto (no afecta) */
+    overflow: hidden;          /* oculta scroll vertical global */
+    min-width: 100vw;          /* asegura ancho mínimo del viewport */
+    overflow-x: hidden;        /* evita scroll horizontal */
+  }
+  
+  /* Encabezado y pie de página */
+  .app-header,
+  .app-footer {
+    display: flex;             /* alineación con flex */
+    align-items: center;       /* centra verticalmente */
+    justify-content: center;   /* centra horizontalmente */
+    width: 100%;               /* ocupa ancho completo */
+    height: 13%;               /* alto del header (relativo) */
+    padding: 16px 24px;        /* espaciado interno */
+    background: #4bae4f;       /* fondo verde */
+    color: white;              /* texto blanco */
+  }
+  
+  .app-footer {
+    height: 7%;                /* alto del footer (relativo) */
+    position: fixed;           /* fijado al fondo de la ventana */
+    bottom: 0;                 /* pegado abajo */
+    left: 0;                   /* alineado a la izquierda */
+    width: 100%;               /* ancho completo */
+    margin-bottom: 0;          /* sin margen inferior */
+    padding: 10px 0;           /* espaciado vertical */
+  }
+  
+  /* Título */
+  h1 {
+    margin: 0;                 /* elimina margen por defecto */
+    font-size: 1.6rem;         /* tamaño del título principal */
+    letter-spacing: 0.3px;     /* espaciado entre letras sutil */
+  }
+  
+  h2 {
+    margin: 0 0 12px;          /* margen inferior para separación */
+    font-size: 1.3rem;         /* tamaño subtítulo */
+  }
+  
+  h3 {
+    margin: 0 0 8px;           /* margen inferior para separación */
+    font-size: 1.1rem;         /* tamaño subtítulo menor */
+  }
+  
+  /* Contenedor principal de la app */
+  .app {
+    width: 100%;               /* ocupa todo el ancho disponible */
+    margin-top: 10px;          /* separación superior */
+    padding: 0 16px;           /* padding lateral */
+    color: black;              /* color de texto específico para .app */
+  }
+  
+  /* Containers (secciones) */
+  .container1,
+  .container2 {
+    padding-top: 20px;         /* espacio superior interno */
+    border: 1px solid rgba(255, 255, 255, 0.06); /* Borde sutil */
+  }
+  
+  .container1 h2,
+  .container2 h2 {
+    font-size: 27px;           /* tamaño específico de h2 dentro de containers */
+    margin-bottom: 20px;       /* separación inferior */
+  }
+  
+  /* Formulario de cliente */
+  .formCliente {
+    display: flex;             /* layout en fila para campos */
+    flex-direction: row;       /* campos alineados horizontalmente */
+    align-items: flex-start;   /* alinea elementos al inicio vertical */
+    margin-bottom: 15px;       /* separación inferior del formulario */
+    gap: 40px;                 /* espacio entre columnas/campos */
+    width: 70%;                /* ancho relativo del formulario */
+  }
+  
+  .formCliente .field {
+    display: flex;             /* Asegura flexbox en contenedores de campo */
+    align-items: flex-start;   /* Alineación superior del contenido del campo */
+  }
+  
+  /* Contenedor genérico de campo */
+  .field {
+    display: flex;             /* flexbox para disposición en columna */
+    flex-direction: column;    /* label encima del input */
+  }
+  
+ 
+  .field input {
+    width: 120%;               /* ancho superior al contenedor */
+  }
+  
 
-* {
-  box-sizing: border-box;
-}
+  .field input:focus {
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.103); 
+  }
+  
 
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, Arial, sans-serif;
-  color: var(--text);
-  background: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  max-height: auto;
-  overflow: hidden;
-  min-width: 100vw;
-  overflow-x: hidden;
-}
-
-/* Encabezado y pie */
-.app-header,
-.app-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 13%;
-  padding: 16px 24px;
-  background: #4bae4f;
-  color: white;
-}
-
-.app-footer {
-  height: 7%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  margin-bottom: 0;
-  padding: 10px 0;
-}
-
-h1 {
-  margin: 0;
-  font-size: 1.6rem;
-  letter-spacing: 0.3px;
-}
-
-h2 {
-  margin: 0 0 12px;
-  font-size: 1.3rem;
-}
-
-h3 {
-  margin: 0 0 8px;
-  font-size: 1.1rem;
-}
-
-.app {
-  width: 100%;
-  margin-top: 10px;
-  padding: 0 16px;
-  color: black;
-}
-
-/* Containers*/
-.container1,
-.container2 {
-  padding-top: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.container1 h2,
-.container2 h2 {
-  font-size: 27px;
-  margin-bottom: 20px;
-}
-
-/* Formulario */
-.formCliente {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  margin-bottom: 15px;
-  gap: 40px;
-  width: 70%;
-}
-
-.formCliente .field {
-  display: flex;
-  align-items: flex-start;
-
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-}
-
-.field input {
-  width: 120%;
-}
-
-
-.field input:focus {
-  box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.103);
-}
-
-.field small {
-  font-size: 11px;
-}
-
-.btn {
-  color: black;
-  cursor:pointer;
-}
-
-/*Tabla*/
-.container-tabla,
-.tabla {
-  width: 100%;
-}
-
-.tabla,
-.tabla th,
-.tabla td {
-  border: 1px solid #31313156;   /* borde negro */
-  border-collapse: collapse; /* evita doble borde */
-  text-align: left;
-  padding-left: 5px;
-  height: 30px;
-}
-
-
-.tabla thead th {
-  background-color: rgb(244, 244, 244);
-  color: #000;
-  font-weight: bold;
-}
+  .field small {
+    font-size: 11px;           /* tamaño pequeño para ayudas */
+  }
+  
+  /* botones genéricos */
+  .btn {
+    color: black;              /* color de texto del botón */
+    cursor: pointer;           /* cursor al pasar por encima */
+  }
+  
+  /* Tabla */
+  .container-tabla,
+  .tabla {
+    width: 100%;               /* ocupan todo el ancho disponible */
+  }
+  
+  .tabla,
+  .tabla th,
+  .tabla td {
+    border: 1px solid #31313156;   
+    border-collapse: collapse;     
+    text-align: left;              
+    padding-left: 5px;
+    height: 30px;                  
+  }
+  
+  /* Encabezado de tabla */
+  .tabla thead th {
+    background-color: rgb(244, 244, 244); /* fondo gris claro para cabecera */
+    color: #000;                           /* texto negro en cabecera */
+    font-weight: bold;                     /* Negrita para destacar */
+  }
+  
