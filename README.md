@@ -108,10 +108,8 @@ Los datos se almacenan **solo en memoria** (variable `clientes`). Al recargar la
 
 - ✅ Validación en tiempo real con feedback visual
 - ✅ Email único (no permite duplicados)
-- ✅ Accesibilidad con atributos ARIA
-- ✅ Uso de API nativa `<dialog>` para el modal
+- ✅ Accesibilidad con atributos 
 - ✅ Código modular con funciones reutilizables
-- ✅ Sin dependencias externas (JavaScript vanilla)
 
 ## 🎓 Proyecto Académico
 
