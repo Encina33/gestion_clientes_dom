@@ -1,6 +1,6 @@
 # Gestión de Clientes
 
-Aplicación web para gestión básica de clientes desarrollada con HTML, CSS y JavaScript vanilla (sin frameworks)
+Aplicación web para gestión básica de clientes desarrollada con HTML, CSS y JavaScript
 
 ## 📋 Descripción
 
