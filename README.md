@@ -1,10 +1,10 @@
 # Gestión de Clientes
 
-Aplicación web para gestión básica de clientes desarrollada con HTML, CSS y JavaScript vanilla (sin frameworks).
+Aplicación web para gestión básica de clientes desarrollada con HTML, CSS y JavaScript vanilla (sin frameworks)
 
 ## 📋 Descripción
 
-Sistema CRUD (Crear, Leer, Actualizar, Eliminar) que permite administrar una lista de clientes en el navegador con validación en tiempo real.
+Sistema CRUD (Crear, Leer, Actualizar, Eliminar) que permite administrar una lista de clientes en el navegador con validación en tiempo real
 
 ## 🗂️ Estructura del Proyecto
 
@@ -102,7 +102,7 @@ let clienteEditandoId = null;  // ID del cliente siendo editado
 
 ## 💾 Almacenamiento
 
-Los datos se almacenan **solo en memoria** (variable `clientes`). Al recargar la página, todos los datos se pierden. No utiliza `localStorage` ni base de datos.
+Los datos se almacenan **solo en memoria** (variable `clientes`). Al recargar la página, todos los datos se pierden. No utiliza `localStorage` ni base de datos
 
 ## ✨ Características Destacadas
 
@@ -115,4 +115,4 @@ Los datos se almacenan **solo en memoria** (variable `clientes`). Al recargar la
 
 ## 🎓 Proyecto Académico
 
-Desarrollado como proyecto de práctica de manipulación del DOM para Ingeniería Informática - Universidad Alfonso X el Sabio (UAX).
+Universidad Alfonso X el Sabio (UAX).
